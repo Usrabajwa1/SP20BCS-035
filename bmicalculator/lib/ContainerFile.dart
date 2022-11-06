@@ -7,7 +7,7 @@ class RepeatContainerCode extends StatelessWidget {
   RepeatContainerCode({@required this.colors, this.cardWidget, this.onPressed});
   final Color ? colors;
   final Widget ? cardWidget;
-  final Function ? onPressed;
+  final Function onPressed;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
