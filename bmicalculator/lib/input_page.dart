@@ -4,7 +4,7 @@ import 'iconeTextFile.dart';
 import 'ContainerFile.dart';
 import 'constantfile.dart';
 import 'resultfile.dart';
-
+import 'calculatorfile.dart';
 enum Gender {
   male,
   female,
@@ -205,7 +205,12 @@ class _InputPageState extends State<InputPage> {
       ),),
           GestureDetector(
             onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen()));
+              CalculatorBrain calc=CalculatorBrain(height: sliderHeight,weight: sliderWeight);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen(
+                    bmiResult: calc.calulatorBMI(),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                  )));
             },
             child: Container(
               child: Center(
