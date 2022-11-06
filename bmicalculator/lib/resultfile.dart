@@ -35,22 +35,23 @@ class ResultScreen extends StatelessWidget {
           ),
           Expanded(
             flex: 5,
-            child: RepeatContainer(
+            child: RepeatContainerCode(
               colors: deActiveColor,
               cardWidget: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    resultText.toUpperCase(),
+                    resultText!.toUpperCase(),
                     style: kResultText,
                   ),
                   Text(
-                    bmiResult,
+                    bmiResult!,
+
                     style: kBMiTextStyle,
                   ),
                   Text(
-                    interpretation,
+                    interpretation!,
                     textAlign: TextAlign.center,
                     style: kbodyTextStyle,
                   )
