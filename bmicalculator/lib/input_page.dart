@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-
+import 'iconeTextFile.dart';
+import 'ContainerFile.dart';
+const activeColor = Color(0xFF607D8B);
+const deActiveColor= Color(0xFF4A148C);
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
 
@@ -10,6 +12,21 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleColor = deActiveColor;
+  Color femaleColor = deActiveColor;
+
+  void updateColor(int gender){
+    if(gender==1){
+      femaleColor = activeColor;
+      maleColor = deActiveColor;
+    }
+    if(gender==2){
+      maleColor = activeColor;
+      femaleColor = deActiveColor;
+    }
+
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,26 +39,35 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
 
               Expanded(
-                child: RepeatContainerCode(
-                  colors: Colors.blueGrey,
-                  cardWidget: Column(
-                   children: <Widget>[
-                     Icon(
-                       FontAwesomeIcons.female,
-                       size: 80.0,
-                     ),
-                     SizedBox(
-                       height: 15.0,
-                     ),
-                     Text('Male')
-
-                   ],
+                child: GestureDetector(
+                  onTap: (){
+                    setState(() {
+                      updateColor(1);
+                    });
+                  },
+                  child: RepeatContainerCode(
+                    colors: femaleColor,
+                    cardWidget: RepeatTextandICONeWidget(
+                      iconData: FontAwesomeIcons.female,
+                      label: 'Female',
+                    ),
                   ),
                 ),
               ),
               Expanded(child:
-              RepeatContainerCode(
-                colors: Colors.blueGrey,
+              GestureDetector(
+                onTap: (){
+                  setState(() {
+                    updateColor(2);
+                  });
+                },
+                child: RepeatContainerCode(
+                  colors: maleColor,
+                  cardWidget: RepeatTextandICONeWidget(
+                    iconData: FontAwesomeIcons.male,
+                    label: 'Male',
+                  ),
+                ),
               ),),
 
             ],
@@ -69,20 +95,5 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class RepeatContainerCode extends StatelessWidget {
-  RepeatContainerCode({required this.colors, this.cardWidget});
- final Color colors;
- final Widget cardWidget;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-    margin: EdgeInsets.all(15.0),
-      child: cardWidget,
-      decoration: BoxDecoration(
-        color:colors,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-              );
-  }
-}
+
 
