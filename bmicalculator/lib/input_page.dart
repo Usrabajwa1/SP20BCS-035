@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'iconeTextFile.dart';
 import 'ContainerFile.dart';
-const activeColor = Color(0xFF607D8B);
-const deActiveColor= Color(0xFF4A148C);
+import 'constantfile.dart';
+
+
+enum Gender {
+  male,
+  female,
+}
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
 
@@ -12,21 +17,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleColor = deActiveColor;
-  Color femaleColor = deActiveColor;
+  Gender ? selectGender;
+  int sliderHeight=180;
 
-  void updateColor(int gender){
-    if(gender==1){
-      femaleColor = activeColor;
-      maleColor = deActiveColor;
-    }
-    if(gender==2){
-      maleColor = activeColor;
-      femaleColor = deActiveColor;
-    }
-
-
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,48 +32,97 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
 
               Expanded(
-                child: GestureDetector(
-                  onTap: (){
-                    setState(() {
-                      updateColor(1);
-                    });
-                  },
+
                   child: RepeatContainerCode(
-                    colors: femaleColor,
+                    onPressed: (){
+                      setState(() {
+                        selectGender=Gender.female;
+                      });
+                    },
+                    colors: selectGender==Gender.female
+                        ? activeColor
+                        : deActiveColor,
                     cardWidget: RepeatTextandICONeWidget(
                       iconData: FontAwesomeIcons.female,
                       label: 'Female',
                     ),
                   ),
-                ),
+
               ),
-              Expanded(child:
-              GestureDetector(
-                onTap: (){
-                  setState(() {
-                    updateColor(2);
-                  });
-                },
+              Expanded(
+
                 child: RepeatContainerCode(
-                  colors: maleColor,
+                  onPressed: (){
+                    setState(() {
+                      selectGender=Gender.male;
+                    });
+                  },
+                  colors: selectGender==Gender.male
+                      ? activeColor
+                      : deActiveColor,
                   cardWidget: RepeatTextandICONeWidget(
                     iconData: FontAwesomeIcons.male,
                     label: 'Male',
                   ),
                 ),
-              ),),
+
+              ),
 
             ],
           ),),
           Expanded(child:
           RepeatContainerCode(
             colors: Colors.blueGrey,
+            cardWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                    'HEIGHT',
+                    style: kLabelStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      sliderHeight.toString(),
+                      style: kNumberStyle,
+                    ),
+                    Text(
+                        'cm',
+                        style: kLabelStyle,
+                    ),
+
+                  ],
+                ),
+                Slider(
+                  value: sliderHeight.toDouble(),
+                  min:120.0,
+                  max: 220.0,
+                  activeColor: Color(0xFFEB1555),
+                  inactiveColor: Color(0xFF8D8E98),
+                  onChanged: (double newValue){
+                    setState(() {
+                      sliderHeight= newValue.round();
+                    });
+                  },
+                ),
+
+              ],
+            ),
           ),),
           Expanded(child: Row(
           children: <Widget>[
           Expanded(child:
           RepeatContainerCode(
             colors: Colors.blueGrey,
+            cardWidget: Column(
+              children: <Widget>[
+                Text(
+                    'WEIGHT',
+                style: kLabelStyle,
+                ),
+              ],
+            ),
           ),),
           Expanded(child:
           RepeatContainerCode(

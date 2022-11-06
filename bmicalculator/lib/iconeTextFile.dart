@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'constantfile.dart';
 
 
 class RepeatTextandICONeWidget extends StatelessWidget {
-  RepeatTextandICONeWidget({required this.iconData,this.label});
-  final IconData iconData;
+  RepeatTextandICONeWidget({@required this.iconData,this.label});
+  final IconData ? iconData;
   final String ? label;
 
   @override
@@ -21,10 +21,7 @@ class RepeatTextandICONeWidget extends StatelessWidget {
         ),
         Text(
           'label',
-          style: TextStyle(
-              fontSize: 30.0,
-              color:Color(0xFF8D8E98)
-          ),)
+          style: kLabelStyle)
 
       ],
     );
