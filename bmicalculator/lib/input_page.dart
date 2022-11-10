@@ -9,11 +9,25 @@ enum Gender {
   male,
   female,
 }
-class InputPage extends StatefulWidget {
-  const InputPage({Key? key}) : super(key: key);
+class input extends StatelessWidget {
+  const input({Key? key}) : super(key: key);
 
   @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+
+class InputPage extends StatefulWidget {
+
+InputPage({
+  @required this.interpretation,
+});
+final String ? interpretation;
+  @override
   State<InputPage> createState() => _InputPageState();
+
 }
 
 class _InputPageState extends State<InputPage> {
@@ -25,7 +39,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR APP'),
+        title:
       ),
       body: Column(
         children: <Widget>[
@@ -209,7 +223,7 @@ class _InputPageState extends State<InputPage> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen(
                     bmiResult: calc.calulatorBMI(),
                     resultText: calc.getResult(),
-                    interpretation: calc.getInterpretation(),
+                  //  interpretation: calc.getInterpretation(),
                   )));
             },
             child: Container(

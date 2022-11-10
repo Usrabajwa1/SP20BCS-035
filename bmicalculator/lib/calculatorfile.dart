@@ -4,15 +4,15 @@ class CalculatorBrain{
   CalculatorBrain({this.height,this.weight});
   final int ? height;
   final int ? weight;
+  double  _bmi =1;
 
-  double  _bmi = 1;
 
+  String  calulatorBMI(){
 
-  String ? calulatorBMI(){
-    _bmi = (weight /pow(height / 100,2);
+    _bmi =( weight! / pow(height! / 100,2));
     return _bmi.toStringAsFixed(1);
   }
-  String ? getResult(){
+  String  getResult(){
     if(_bmi >= 25){
       return'normal';
     }
@@ -20,7 +20,7 @@ class CalculatorBrain{
       return 'underweight';
     }
   }
-  String ? getInterpretation(){
+  String  getInterpretation(){
     if(_bmi >= 25){
       return 'you have higher than normal body weight! try exercise';
     }

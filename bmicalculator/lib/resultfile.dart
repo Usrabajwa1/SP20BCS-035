@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'constantfile.dart';
 import 'ContainerFile.dart';
 import 'input_page.dart';
+import 'calculatorfile.dart';
 class ResultScreen extends StatelessWidget {
   ResultScreen({
-    @required this.interpretation,
+  //  @required this.interpretation,
   @required this.resultText,
   @required this.bmiResult,
 });
 
  final String ? bmiResult;
  final String ? resultText;
- final String ? interpretation;
+// final String ? interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +51,7 @@ class ResultScreen extends StatelessWidget {
 
                     style: kBMiTextStyle,
                   ),
-                  Text(
-                    interpretation!,
-                    textAlign: TextAlign.center,
-                    style: kbodyTextStyle,
-                  )
+
                 ],
               )
             ),
@@ -62,7 +59,10 @@ class ResultScreen extends StatelessWidget {
           Expanded(
             child: GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>InputPage()));
+                CalculatorBrain calc=CalculatorBrain();
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>InputPage(
+                  interpretation: calc.getInterpretation(),
+                )));
               },
               child: Container(
                 child: Center(
