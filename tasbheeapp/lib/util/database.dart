@@ -14,7 +14,7 @@ class DatabaseHelper{
   final String columnItemName= "itemName";
   final String columnDtabaseCreate = "dateCreated";
 
-  static  Database _db;
+  static  late Database _db;
 
   Future<Database> get db async{
     if(_db != null){
@@ -34,7 +34,7 @@ class DatabaseHelper{
 
   void _onCreate(Database db, int version) async{
     await db.execute(
-      "CREATE TABLE $tableName(id INTEGER PRIMARY KEY , $columnItemName Text, $columnDtabaseCreate ");
+      "CREATE TABLE $tableName(id INTEGER PRIMARY KEY , $columnItemName Text, $columnDtabaseCreate num ");
        print("Table is create");
 
   }
@@ -58,7 +58,7 @@ class DatabaseHelper{
     return Sqflite.firstIntValue(
         await dbClient.rawQuery("SELECT COUNT(*)"));
   }
-  Future<TasbheeNames> getItem(int id) async{
+  Future<Null> getItem(int id) async{
     var dbClient = await db;
     var result = await dbClient.rawQuery("SELECT * FROM $tableName WHERE id = $id");
     if(result.length==0)
@@ -72,7 +72,7 @@ class DatabaseHelper{
   }
   Future<int> updateItem(TasbheeNames item)async{
     var dbClient = await db;
-    return await dbClient.delete(tableName,item.toMap());
+    return await dbClient.delete(tableName);
 
   }
   Future colse() async{

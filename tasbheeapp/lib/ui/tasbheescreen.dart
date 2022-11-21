@@ -15,6 +15,34 @@ class _TasbheeScreenState extends State<TasbheeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
+      body: Column(
+        children: [
+          Flexible(child: ListView.builder(
+            padding: EdgeInsets.all(8.0),
+            reverse: false,
+            itemCount: _itemList.length,
+            itemBuilder: (_, int index){
+              return Card(
+                color: Colors.black45,
+                child: ListTile(
+                  title: _itemList[index],
+                  trailing: new Listener(
+                    key: new Key (_itemList[index].itemName!),
+                    child: Icon(
+                      Icons.remove_circle,
+                      color: Colors.teal,
+                    ),
+                  )
+                ),
+              );
+            },
+          )
+          ),
+          Divider(
+            height: 1.0,
+          )
+        ],
+      ),
       floatingActionButton:
       FloatingActionButton(
         tooltip: "add item",
@@ -42,24 +70,27 @@ class _TasbheeScreenState extends State<TasbheeScreen> {
           ))
 
         ],
-      )
-      actions: <Widget>[
-        Textbutton(
-     onPressed: (){
-       _handleSubmitted(_textEditingController.text);
-       _textEditingController.clear();
-       Navigator.pop(context);
+      ),
+     actions: [
+        FloatingActionButton(
+        onPressed: (){
+      _handleSubmitted(_textEditingController.text);
+      _textEditingController.clear();
+      Navigator.pop(context);
 
     },
-    )
-        ]
     ),
+        ]
+
+
+    );
     showDialog(
+
     context: context,
-        builder: (_)
-    {
+        builder: (_),
+        {
         return alert;
-    }
+        }
     );
   }
 
@@ -67,9 +98,9 @@ class _TasbheeScreenState extends State<TasbheeScreen> {
     _textEditingController.clear();
     TasbheeNames tasbheenames = TasbheeNames(text, DateTime.now().toIso8601String());
     int savedItem = await db.saveItem(tasbheenames);
-    TasbheeNames addedItem = await db.getItem(savedItem);
+    Null addedItem = await db.getItem(savedItem);
     setState(() {
-      _itemList.insert(0,addedItem);
+      _itemList.insert(0,addedItem!);
     });
     print("Item saved id : $savedItem")
     ;
