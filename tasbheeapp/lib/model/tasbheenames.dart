@@ -5,7 +5,7 @@ class TasbheeNames extends StatelessWidget {
   String ?_dateCreate;
   int ? _id;
 
-  TasbheeNames(this._itemName,this._dateCreate),
+  TasbheeNames(this._itemName,this._dateCreate);
 
   TasbheeNames.map(dynamic obj){
     this._itemName = obj["itemName"];

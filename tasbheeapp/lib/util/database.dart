@@ -58,19 +58,19 @@ class DatabaseHelper{
     return Sqflite.firstIntValue(
         await dbClient.rawQuery("SELECT COUNT(*)"));
   }
-  Future<Null> getItem(int id) async{
+  Future<TasbheeNames?> getItem(int id) async{
     var dbClient = await db;
     var result = await dbClient.rawQuery("SELECT * FROM $tableName WHERE id = $id");
     if(result.length==0)
       return null;
       result.first as int;
   }
-  Future<int> deletItem(int id)async{
+  Future<int?> deletItem(int id)async{
     var dbClient = await db;
     return await dbClient.delete(tableName,where: "$colomnId =?", whereArgs: [id]);
 
   }
-  Future<int> updateItem(TasbheeNames item)async{
+  Future<int?> updateItem(TasbheeNames item)async{
     var dbClient = await db;
     return await dbClient.delete(tableName);
 
