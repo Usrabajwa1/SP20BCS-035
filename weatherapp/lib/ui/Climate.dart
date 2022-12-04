@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/apifile.dart' as util;
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+String ? display;
 class Climate extends StatefulWidget {
   @override
   _ClimateState createState() => _ClimateState();
@@ -17,6 +17,7 @@ class _ClimateState extends State<Climate> {
 
   String ? _cityEntered;
   Future _goToNextScreen(BuildContext context) async {
+
     Map? results = await Navigator.of(context)
         .push( MaterialPageRoute<Map>(builder: (BuildContext context) {
       //change to Map instead of dynamic for this to work
@@ -129,7 +130,9 @@ class _ClimateState extends State<Climate> {
 }
 
 class ChangeCity extends StatelessWidget {
-  var _cityFieldController = TextEditingController();
+  final _cityFieldController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,13 +162,18 @@ class ChangeCity extends StatelessWidget {
                   controller: _cityFieldController,
                   keyboardType: TextInputType.text,
                 ),
+
               ),
               ListTile(
                 title: TextButton(
-                    onPressed: () {
+                    onPressed: (
+                        ) {
                       Navigator.pop(
                           context, {'enter': _cityFieldController.text});
+
                     },
+
+
                    // textColor: Colors.white70,
                    // color: Colors.redAccent,
                     child: Text('Get Weather')),

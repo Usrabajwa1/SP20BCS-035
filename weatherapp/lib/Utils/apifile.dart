@@ -1,2 +1,2 @@
-final apiId = "ee595cbdb0db0ef5d11b9caf5a8eb1ea";
-final defaultCity = "Vehari";
+const apiId = "afc26131632c8d14b920607f4f568941";
+const defaultCity = "Vehari";
