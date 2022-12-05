@@ -46,7 +46,15 @@ showWeather() async{
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      body: SingleChildScrollView(
+      backgroundColor: Colors.pink,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text('WeatherApp'),
+        centerTitle: true,
+      ),
+
+      body:
+      SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -71,7 +79,7 @@ showWeather() async{
               const SizedBox(height: 20),
               MaterialButton(
                 height: 50,
-                color: const Color(0xFF0000FF),
+                color: Colors.black,
                 child: const Text('Show Weather',style: TextStyle(fontSize:21,color: Colors.white)),
                 onPressed: (){
                   showWeather();
