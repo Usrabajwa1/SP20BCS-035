@@ -18,7 +18,7 @@ class _TasbheeScreenState extends State<TasbheeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children:[
@@ -37,7 +37,7 @@ class _TasbheeScreenState extends State<TasbheeScreen> {
 
                   ),
                 ),
-                color: Colors.purpleAccent,
+                color: Colors.blue,
                 height: 80
                 ,
 
@@ -90,7 +90,7 @@ class _TasbheeScreenState extends State<TasbheeScreen> {
         actions: [
          TextButton(
             onPressed:() {
-              //handleSubmitted(_textEditingController.text);
+             // handleSubmitted(_textEditingController.text);
               _textEditingController.clear();
               Navigator.pop(context);
             }, child: Text("Save"),
@@ -108,7 +108,8 @@ class _TasbheeScreenState extends State<TasbheeScreen> {
 
     );
 
-    void handleSubmitted(String? text) async {
+    void handleSubmitted(String?text) async {
+
       _textEditingController.clear();
       TasbheeNames tasbheenames = TasbheeNames(
           text, DateTime.now().toIso8601String());

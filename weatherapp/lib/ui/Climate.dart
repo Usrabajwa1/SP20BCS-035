@@ -45,10 +45,11 @@ class _ClimateState extends State<Climate> {
               })
         ],
       ),
-      body: Stack(
+      body:
+      Stack(
 
           children: <Widget>[
-      Center(
+             Center(
       child: Image(
           image: AssetImage('images/umbrela.png'),
       height: 1250.0,
@@ -56,16 +57,16 @@ class _ClimateState extends State<Climate> {
       fit: BoxFit.fill,
     ),
     ),
-    Container(
+         Container(
     alignment: Alignment.topRight,
     margin: EdgeInsets.fromLTRB(0.0, 10.9, 20.9, 0.0),
-    child: Text(
+              child: Text(
     '${_cityEntered == null ? util.defaultCity : _cityEntered}',
     style: cityStyle(),
     ),
     ),
-    Center(
-    child: Image(
+             Center(
+              child: Image(
     image: AssetImage('images/rain.png'),
     ),
     ),
