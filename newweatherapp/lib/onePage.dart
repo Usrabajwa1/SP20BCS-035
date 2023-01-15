@@ -45,7 +45,8 @@ showWeather() async{
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
+    return
+      SafeArea(child: Scaffold(
       backgroundColor: Colors.pink,
       appBar: AppBar(
         backgroundColor: Colors.black,
