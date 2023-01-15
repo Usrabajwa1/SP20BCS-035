@@ -356,21 +356,21 @@ class Boys {
   // Implement toString to make it easier to see information about
   // each breed when using the print statement.
   @override
-  String toString() => 'Breed(id: $id, name: $name, description: $description)';
+  String toString() => 'boys(id: $id, name: $name, description: $description)';
 }
 class Girls{
   final int? id;
   final String name;
   final int age;
   final Color color;
-  final int breedId;
+  final int boysId;
 
   Girls({
     this.id,
     required this.name,
     required this.age,
     required this.color,
-    required this.breedId,
+    required this.boysId,
   });
 
   // Convert a Dog into a Map. The keys must correspond to the names of the
@@ -381,7 +381,7 @@ class Girls{
       'name': name,
       'age': age,
       'color': color.value,
-      'breedId': breedId,
+      'boysId': boysId,
     };
   }
 
@@ -391,7 +391,7 @@ class Girls{
       name: map['name'] ?? '',
       age: map['age']?.toInt() ?? 0,
       color: Color(map['color']),
-      breedId: map['breedId']?.toInt() ?? 0,
+      boysId: map['breedId']?.toInt() ?? 0,
     );
   }
 
@@ -403,7 +403,7 @@ class Girls{
   // each dog when using the print statement.
   @override
   String toString() {
-    return 'Dog(id: $id, name: $name, age: $age, color: $color, breedId: $breedId)';
+    return 'Girls(id: $id, name: $name, age: $age, color: $color, boysId: $boysId)';
   }
 }
 class BoysBuilder extends StatelessWidget {
@@ -431,7 +431,7 @@ class BoysBuilder extends StatelessWidget {
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               final breed = snapshot.data![index];
-              return _buildBreedCard(boys, context);
+              return buildBoyCard(boys, context);
             },
           ),
         );
@@ -439,7 +439,7 @@ class BoysBuilder extends StatelessWidget {
     );
   }
 
-  Widget _buildBreedCard(Boys boy, BuildContext context) {
+  Widget buildBoyCard(Boys boy, BuildContext context) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(12.0),

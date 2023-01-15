@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "611923557685",
+    "project_id": "amazing-counter-9fe63",
+    "storage_bucket": "amazing-counter-9fe63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611923557685:android:0c2cbcad66e385517e207c",
+        "android_client_info": {
+          "package_name": "com.example.amazing_counter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611923557685-765qsj4fo2nal8er42tni4f4255gsq51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBN8yPKhEvqlGIigvzPd38f4QoC_GA26k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611923557685-765qsj4fo2nal8er42tni4f4255gsq51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

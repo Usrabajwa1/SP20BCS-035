@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partymanagement/Collection.dart';
 import 'package:partymanagement/parcipations.dart';
 import 'splashscreen.dart';
 import 'main.dart';
@@ -64,7 +65,10 @@ return Scaffold(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.purple, // foreground
               ),
-              onPressed: () { },
+              onPressed: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => collection()));
+              },
               child: Text('Total collection'),
             ),
           ),
