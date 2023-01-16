@@ -32,7 +32,8 @@ class _SaplashpageState extends State<Saplashpage> {
       SafeArea(child: Scaffold(
         backgroundColor: Colors.red,
 
-        body: Container(
+        body:
+        Container(
           decoration: BoxDecoration(
         gradient: LinearGradient(
         begin: Alignment.topRight,
